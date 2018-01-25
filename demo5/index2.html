@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-propTypes</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var tplData = 'hello react for propTypes';
+    var Tpl = React.createClass({
+        propTypes:{
+            name:React.PropTypes.string.isRequired,
+        },
+        render:function () {
+            return <h1>{this.props.name}</h1>
+        }
+    });
+    ReactDOM.render(
+        <Tpl name={tplData}/>,
+        document.getElementById('example')
+    )
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义组件-子组件</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var NodeList = React.createClass({
+        render:function () {
+            console.log(this.props.children);
+            return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children,function (child) {
+                            console.log(React.Children.map);
+                            return <li>hello {child}</li>
+                        })
+                        }
+                    </ol>
+            );
+        }
+    });
+    ReactDOM.render(
+            <NodeList>
+                <h1>aaaa</h1>
+                <h1>cccc</h1>
+                <h1>bbbb</h1>
+            </NodeList>,
+    document.getElementById('example')
+    )
+</script>
+</body>
+</html>

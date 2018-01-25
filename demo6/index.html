@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-获取真实dom</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var Tpl = React.createClass({
+
+        handClick:function () {
+            this.refs.aaaaa.focus();
+        },
+
+        render: function () {
+            return (
+                    <div>
+                        <input ref="aaaaa" />
+                        <input type="button" value="点击聚焦" onClick={this.handClick} />
+                    </div>
+            )
+        }
+    });
+
+    ReactDOM.render(
+        <Tpl/>,
+        document.getElementById('example')
+    )
+</script>
+</body>
+</html>
